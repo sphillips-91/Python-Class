@@ -7,3 +7,4 @@ merged_dt = pd.merge(dt2, dt1, on="Age", how = "left")
 merged_dt["Expected Deaths"] = merged_dt["#Alive"] * merged_dt["Fatality Rate"]
 dt3 = merged_dt.groupby("PopulationID").agg({"#Alive": "sum", "Expected Deaths": "sum"})
 dt3["Percent Died"] = (dt3["Expected Deaths"] / dt3["#Alive"]) * 100
+dt3.to_csv("Assignment4_csv")
